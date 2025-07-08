@@ -7,7 +7,7 @@ This document outlines the end-to-end data engineering process for Safaricom Ana
 
 ## Table of Contents
 
-1. **VPC and Networking Setup**
+1. **VPC, Networking Setup, and Workload Definition**
 2. **Amazon Elastic Kubernetes Service (EKS) Cluster Setup**
 3. **Amazon S3 Buckets for Data Storage**
 4. **Data Ingestion from Google BigQuery to AWS Glue**
@@ -21,8 +21,13 @@ This document outlines the end-to-end data engineering process for Safaricom Ana
 
 ---
 
-### 1. **VPC and Networking Setup**
+### 1. **VPC, Networking Setup, and Workload Definition**
+
 ![VPC and Networking Setup](https://github.com/lewis-hue/End-to-End-Data-Architecture-and-Analytics-Pipeline-on-AWS/blob/main/Success_VPC.png)
+
+
+![Workload Definition](https://github.com/lewis-hue/End-to-End-Data-Architecture-and-Analytics-Pipeline-on-AWS/blob/main/Successful%20Definition%20of%20a%20Workload.png)
+
 
 **Description:**
 
@@ -123,7 +128,6 @@ Data from **Google BigQuery** is ingested into AWS via an AWS connector to **AWS
 
 ![Sample Data Table Migrated](https://github.com/lewis-hue/End-to-End-Data-Architecture-and-Analytics-Pipeline-on-AWS/blob/main/fulizadata_awslake.png)
 
-![AWS Glue to Data Lake](https://github.com/lewis-hue/End-to-End-Data-Architecture-and-Analytics-Pipeline-on-AWS/blob/main/Third_Party_Job.png)
 
 **Description:**
 
@@ -139,6 +143,8 @@ After the data has been processed and transformed by **AWS Glue**, it is loaded 
 
 
 ### 5. **ETL Processing with AWS Glue**
+
+![ETL Processing with AWS Glue](https://github.com/lewis-hue/End-to-End-Data-Architecture-and-Analytics-Pipeline-on-AWS/blob/main/Curated_Data_Runs_AWS_Glue.png)
 
 **Description:**
 
@@ -175,6 +181,13 @@ The curated data lake acts as the central repository for all processed data, ens
 
 ### 7. **Feature Engineering and Machine Learning with Amazon SageMaker**
 
+![Feature Engineering](https://github.com/lewis-hue/End-to-End-Data-Architecture-and-Analytics-Pipeline-on-AWS/blob/main/Feature_Engineering_Sagemaker.png)
+
+
+
+![Prediction models](https://github.com/lewis-hue/End-to-End-Data-Architecture-and-Analytics-Pipeline-on-AWS/blob/main/Machine_Learning_Model%20(Sagemaker).png)
+
+
 **Description:**
 
 **Amazon SageMaker** is used for feature engineering and machine learning model training. Feature engineering is performed on the curated data to generate new features that can better predict customer behavior and trends.
@@ -193,6 +206,8 @@ Feature engineering is essential for building accurate predictive models. Machin
 ---
 
 ### 8. **Data Migration with AWS DMS**
+
+![Data Migration with AWS DMS](https://github.com/lewis-hue/End-to-End-Data-Architecture-and-Analytics-Pipeline-on-AWS/blob/main/Success_MigrationTask_RDS.png)
 
 **Description:**
 
@@ -236,41 +251,18 @@ Athena queries produce valuable business insights, such as:
 
 - **Average Transaction Amount by County**:
 
-  | County      | Avg Transaction Amount |
-  |-------------|------------------------|
-  | Mombasa     | 110.25                 |
-  | Nakuru      | 106.67                 |
-  | Thika       | 106.67                 |
-  | Kitale      | 102.50                 |
-  | Nairobi     | 100.25                 |
-  | Kisii       | 95.17                  |
-  | Eldoret     | 87.50                  |
-
-- **Total Transactions by County**:
-
-  | County      | Total Transactions |
-  |-------------|--------------------|
-  | Mombasa     | 240.0              |
-  | Nakuru      | 180.0              |
-  | Kisii       | 160.0              |
-  | Thika       | 140.0              |
-  | Eldoret     | 100.0              |
-  | Kitale      | 100.0              |
-  | Nairobi     | 95.0               |
+  
+![Data Migration with AWS DMS](https://github.com/lewis-hue/End-to-End-Data-Architecture-and-Analytics-Pipeline-on-AWS/blob/main/Avg_Transaction_Amount_Per_County.png)
+        |
 
 - **Loan Metrics by County**:
 
-  | County      | Avg Loan Amount | Total Loans |
-  |-------------|-----------------|-------------|
-  | Nairobi     | 21,500.63       | 2           |
-  | Mombasa     | 16,375.50       | 4           |
-  | Thika       | 15,667.25       | 3           |
-  | Nakuru      | 14,834.05       | 3           |
-  | Kitale      | 11,750.63       | 2           |
-  | Eldoret     | 11,250.18       | 2           |
-  | Kisii       | 10,500.63       | 3           |
+![Loan Metrics by County](https://github.com/lewis-hue/End-to-End-Data-Architecture-and-Analytics-Pipeline-on-AWS/blob/main/counties_total_loans.png)
 
-- **Inactive Subscribers**: 47.37% of customers are inactive.
+
+- **Inactive Subscribers**:
+
+![Inactive Subscribers](https://github.com/lewis-hue/End-to-End-Data-Architecture-and-Analytics-Pipeline-on-AWS/blob/main/Percentage_Inactive_Subscribers.png)
 
 **Business Implications:**
 
@@ -281,6 +273,8 @@ Athena queries produce valuable business insights, such as:
 ---
 
 ### 11. **Data Visualization with Amazon QuickSight**
+
+![Dashboard](https://github.com/lewis-hue/End-to-End-Data-Architecture-and-Analytics-Pipeline-on-AWS/blob/main/SafaricomAnalytics%20Dashboard.png)
 
 **Description:**
 

@@ -89,22 +89,54 @@ S3's scalability and durability ensure that data is safely stored and easily acc
 
 ---
 
-### 4. **Data Ingestion from Google BigQuery to AWS Glue**
+## 4. Data Ingestion Process
+
+### From Kafka Producers, EKS to Kinesis Firehose to Data Lake
+
+![Kafka to Kinesis Firehose to Data Lake](https://github.com/lewis-hue/End-to-End-Data-Architecture-and-Analytics-Pipeline-on-AWS/blob/main/MSK%20to%20Firehose.png)
 
 **Description:**
 
-Data from **Google BigQuery** is ingested into AWS Glue through an AWS connector. AWS Glue, as a serverless ETL service, allows for the automated extraction, transformation, and loading of data into the data lake.
+In this stage, data is ingested from **Kafka Producers** (which could be streaming applications or microservices) to **Amazon EKS** (Elastic Kubernetes Service) and then routed through **Amazon Kinesis Firehose** to the **Data Lake** stored in **Amazon S3**. **Kinesis Firehose** is used to stream data in real-time, providing a fully managed, scalable solution for ingesting streaming data into AWS.
 
 **Impact:**
 
-- Automates the ingestion of data from external sources (e.g., BigQuery) to AWS, saving time and resources.
-- Ensures that the data is transformed and organized correctly before it enters the data lake.
+- **Real-time Ingestion**: This process enables the real-time ingestion of data from various sources, providing immediate insights into incoming data streams.
+- **Scalable Architecture**: Leveraging **Kinesis Firehose** ensures that data can be ingested at scale without worrying about throughput, as Kinesis handles automatic scaling.
+- **Low Latency**: With the integration of **EKS** and **Kinesis**, the system minimizes latency, ensuring that data flows seamlessly from Kafka producers to the data lake in real-time.
 
-**Importance:**
+### From Google BigQuery to AWS Glue
 
-Data ingestion is a critical part of the pipeline, ensuring that external data sources are integrated seamlessly into the AWS ecosystem for further processing and analytics.
+![Secondary Data Ingestion (From Bigquery)](https://github.com/lewis-hue/End-to-End-Data-Architecture-and-Analytics-Pipeline-on-AWS/blob/main/Third_Party_Job.png)
 
----
+**Description:**
+
+Data from **Google BigQuery** is ingested into AWS via an AWS connector to **AWS Glue**, a serverless ETL service. This process extracts the data, transforms it to fit the target schema, and loads it into the **Data Lake** stored in **Amazon S3**. The data extracted from BigQuery is processed and refined to meet the requirements of further analytics or machine learning workflows.
+
+**Impact:**
+
+- **Automated ETL**: AWS Glue automates the extraction, transformation, and loading process, significantly reducing the time and resources required for manual data integration.
+- **Data Quality**: The transformation ensures that the data is cleaned, formatted, and enriched, making it more suitable for downstream applications like reporting and machine learning.
+- **Seamless Integration**: The AWS Glue connector allows for easy and seamless integration of external sources like **Google BigQuery** into AWS, enabling the combination of data across different platforms for richer insights.
+
+### From AWS Glue to Data Lake
+
+![Sample Data Table Migrated](https://github.com/lewis-hue/End-to-End-Data-Architecture-and-Analytics-Pipeline-on-AWS/blob/main/fulizadata_awslake.png)
+
+![AWS Glue to Data Lake](https://github.com/lewis-hue/End-to-End-Data-Architecture-and-Analytics-Pipeline-on-AWS/blob/main/Third_Party_Job.png)
+
+**Description:**
+
+After the data has been processed and transformed by **AWS Glue**, it is loaded into the **Data Lake** in **Amazon S3**. The **Data Lake** serves as the central repository where raw, curated, and cleaned data is stored in a highly available and scalable manner, ready for further analytics, reporting, and machine learning tasks.
+
+**Impact:**
+
+- **Centralized Storage**: The **Data Lake** in **Amazon S3** provides a centralized location for storing large amounts of data in its raw and transformed state.
+- **Scalable and Cost-effective**: **S3** offers scalable and cost-effective storage, which is crucial for managing large datasets without worrying about running out of space or facing high storage costs.
+- **Future-Proof**: Data stored in **S3** can easily be integrated with other AWS services for further analysis, making it future-proof for evolving analytics needs.
+
+"""
+
 
 ### 5. **ETL Processing with AWS Glue**
 

@@ -1,6 +1,9 @@
 ## Overview
 
-This document outlines the end-to-end data engineering process for Safaricom Analytics using AWS. The project involves building a robust data pipeline, performing analytics, and applying machine learning models, followed by visualization in Amazon QuickSight. Each step has been carefully crafted to ensure that the architecture is scalable, maintainable, and optimized for business intelligence and operational decision-making.
+This document outlines the end-to-end data engineering process for Safaricom Analytics using AWS. The project involves building a robust data pipeline, performing analytics, and applying machine learning models, followed by visualization in Amazon QuickSight. Each step has been carefully crafted to ensure that the architecture is scalable, maintainable, and optimized for business intelligence and operational decision-making. The steps carried are shown in the following high-level architecture diagram below.
+
+## High-level Architecture Diagram
+![High-level Architecture Diagram](https://github.com/lewis-hue/End-to-End-Data-Architecture-and-Analytics-Pipeline-on-AWS/blob/main/High_Level_Architecture_Diagram.png)
 
 ## Table of Contents
 

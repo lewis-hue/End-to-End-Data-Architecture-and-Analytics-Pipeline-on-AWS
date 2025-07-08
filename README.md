@@ -264,10 +264,3 @@ This comprehensive data pipeline, leveraging AWS services such as EKS, S3, Glue,
 By having a scalable and well-organized data architecture, Safaricom can continuously refine its operations, predict customer behavior, and deliver targeted interventions, all of which lead to improved performance and customer satisfaction.
 """
 
-# Saving the content into a .Rmd file
-rmd_file_path = '/mnt/data/Safaricom_Analytics_Data_Engineering_Project.Rmd'
-
-with open(rmd_file_path, 'w') as file:
-    file.write(rmd_content)
-
-rmd_file_path

@@ -181,6 +181,73 @@ The curated data lake serves as a well-organized and accessible repository for a
 
 ![Feature Engineering](https://github.com/lewis-hue/End-to-End-Data-Architecture-and-Analytics-Pipeline-on-AWS/blob/main/Feature_Engineering_Sagemaker.png)
 
+
+## Feature 1: Aggregate Transaction Metrics per Customer
+
+## Explanation:
+
+**total_txn_amount**: This feature aggregates the total transaction amount for each customer. It's a direct indicator of how much money a customer has transacted overall. This feature could be useful for predicting customer engagement or even the likelihood of applying for a loan.
+
+**avg_txn_amount**: The average transaction amount helps to understand the typical transaction size for each customer. Customers with higher average transaction amounts may be more financially active or engaged.
+
+**txn_count**: The number of transactions provides an insight into how frequently the customer transacts. Frequent transactions can indicate high engagement with the service.
+
+**unique_channels**: This feature counts how many distinct transaction channels a customer has used. A high count might indicate that the customer is comfortable using different methods or has a broader engagement with the system.
+
+**most_used_channel**: This identifies the most frequent channel used by the customer. Knowing which channel is most popular can be useful for understanding customer preferences and optimizing engagement strategies.
+
+**last_txn_date**: The last transaction date is a temporal feature that helps track customer activity recency. It is crucial for identifying customers who may be dormant or have not interacted with the service recently.
+
+## Feature 2: Fuliza Metrics
+
+## Explanation:
+
+**total_loans**: The count of loans taken by each customer. This gives insight into how financially active a customer is within the loan system, specifically related to products like Fuliza.
+
+**total_loan_amount**: The total amount of money borrowed by the customer. High borrowing amounts could signal financial strain or greater dependency on credit.
+
+**total_repaid_amount**: The total amount repaid by the customer. This can help assess how reliable a customer is in terms of paying back their loans. A low repayment amount could signal issues with customer repayment behavior.
+
+**repayment_ratio**: The ratio of repayments made relative to the total number of loans. This is a key indicator of customer repayment behavior, which can directly affect risk assessments for future loans.
+
+**active_loans**: The number of loans that are currently not repaid (still active). This metric can help predict future loan behavior and highlight potential customers at risk of defaulting.
+
+## Feature 3: Customer-Level Engagement
+
+## Explanation:
+
+**days_since_registration**: This feature measures how long a customer has been registered with the service, indicating customer loyalty or engagement. A long duration might correlate with a customer who is more deeply integrated into the service, but could also suggest a longer time before they are at risk of churn.
+
+**days_active**: This measures the duration a customer has been active (not deactivated). If the deactivation date is missing, it assumes the customer is still active. This feature is critical for understanding customer longevity and activity levels. Customers with a long active duration are more likely to be loyal, whereas shorter durations might indicate potential churn risks.
+
+## The Role of Feature Engineering in this Context
+Feature engineering in this example is instrumental in creating predictive signals that allow the business to assess customer behavior more accurately. These features help in building models that can predict customer behavior, identify opportunities for engagement, or anticipate risks (e.g., loan defaults or churn).
+
+## Aggregating Customer Behavior:
+
+Features like total transaction amounts and average transaction amounts help model financial behaviors, which can be predictive of other behaviors, such as loan uptake, repayment likelihood, or churn.
+
+## Temporal Features:
+**last_txn_date** and **days_since_registration** are key temporal features that can indicate the customer’s activity trend. Recency often correlates with customer interest or risk.
+
+## Loan Features:
+
+By understanding loan metrics, including **total loan amount**, **repayment ratio**, and **active loans**, the system can assess the customer's financial health. This directly informs credit risk and can guide the creation of tailored loan products or retention strategies.
+
+## Customer Engagement:
+
+Features like **days_active** and **days_since_registration** track a customer’s relationship with the platform, which is essential for segmentation. Customers with low engagement might be prime candidates for re-engagement campaigns, while those with high engagement can be targeted for upselling services.
+
+## Data Classification and Visualization
+
+Data classification and visualization are closely tied to feature engineering, as they help you assess the relevance of features for predictive modeling. By visualizing these features, you can identify:
+
+Outliers: For instance, customers with unusually high transaction counts or loan amounts can be flagged for review.
+
+Trends: Visualizing days_active vs. loan repayment behaviors can reveal trends such as the correlation between active days and loan repayment likelihood.
+
+Correlation: Understanding how features like repayment_ratio correlate with other financial behaviors (like transaction volume) helps to refine predictive models and improve decision-making.
+
 ![Prediction models](https://github.com/lewis-hue/End-to-End-Data-Architecture-and-Analytics-Pipeline-on-AWS/blob/main/Machine_Learning_Model%20(Sagemaker).png)
 
 **Description:**

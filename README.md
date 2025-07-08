@@ -44,6 +44,8 @@ The VPC architecture is crucial for building a secure, reliable, and scalable fo
 
 ### 2. **Amazon Elastic Kubernetes Service (EKS) Cluster Setup**
 
+![EKS Cluster Setup](https://github.com/lewis-hue/End-to-End-Data-Architecture-and-Analytics-Pipeline-on-AWS/blob/main/Success_EKS_Cluster.png)
+
 **Description:**
 
 The next step is the creation of an **EKS cluster**. EKS manages Kubernetes clusters on AWS, providing a powerful platform for deploying and scaling containerized applications. EKS allows for seamless orchestration of microservices and batch jobs, vital for managing the data workflows.
@@ -65,9 +67,15 @@ The EKS cluster is key in managing the deployment of ETL jobs, microservices, an
 
 **Amazon S3** is used to store raw, curated, and cleaned data. There are three primary S3 buckets:
 
-1. **Raw Data Bucket** – Stores data ingested from external sources like BigQuery.
-2. **Curated Data Bucket** – Stores cleaned and processed data, ready for analysis.
-3. **Cleaned Data Bucket** – Stores final data after feature engineering and model results.
+1. **Raw Data Bucket (Data Lake)** – Stores data ingested from external sources like BigQuery.
+
+![Raw Data Bucket](https://github.com/lewis-hue/End-to-End-Data-Architecture-and-Analytics-Pipeline-on-AWS/blob/main/Data%20Lake%20Formation.png)
+   
+3. **Curated Data Bucket** – Stores cleaned and processed data, ready for analysis.
+
+![Curated Data Bucket](https://github.com/lewis-hue/End-to-End-Data-Architecture-and-Analytics-Pipeline-on-AWS/blob/main/S3%20Curated%20Database.png)
+  
+5. **Cleaned Data Bucket** – Stores final data after feature engineering and model results.
 
 **Impact:**
 

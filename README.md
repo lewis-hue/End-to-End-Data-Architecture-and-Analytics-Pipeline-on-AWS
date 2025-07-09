@@ -126,6 +126,8 @@ Data is ingested from **Google BigQuery** using the AWS Glue connector, a server
 
 #### From AWS Glue to Data Lake
 
+**Sample Data Table Migrated**
+
 ![Sample Data Table Migrated](https://github.com/lewis-hue/End-to-End-Data-Architecture-and-Analytics-Pipeline-on-AWS/blob/main/fulizadata_awslake.png)
 
 **Description:**
@@ -179,8 +181,27 @@ The curated data lake serves as a well-organized and accessible repository for a
 
 ### 7. **Feature Engineering and Machine Learning with Amazon SageMaker**
 
+**Feature Engineering**
+
 ![Feature Engineering](https://github.com/lewis-hue/End-to-End-Data-Architecture-and-Analytics-Pipeline-on-AWS/blob/main/Feature_Engineering_Sagemaker.png)
 
+
+**Prediction Models**
+
+![Prediction models](https://github.com/lewis-hue/End-to-End-Data-Architecture-and-Analytics-Pipeline-on-AWS/blob/main/Machine_Learning_Model%20(Sagemaker).png)
+
+**Description:**
+
+**Amazon SageMaker** is used for feature engineering and machine learning. It processes the curated data to create new features that improve model predictions. For instance, churn prediction and loan activity prediction models are built based on customer behavior data.
+
+**Impact:**
+
+- **Feature Engineering**: Generates new predictive features, improving model accuracy.
+- **Machine Learning Models**: Trains predictive models that provide actionable insights into customer behavior and trends.
+
+**Importance:**
+
+Feature engineering and machine learning are crucial for building predictive models that help businesses make data-driven decisions, such as identifying high-value customers or predicting churn.
 
 ## Feature 1: Aggregate Transaction Metrics per Customer
 
@@ -247,21 +268,6 @@ Outliers: For instance, customers with unusually high transaction counts or loan
 Trends: Visualizing days_active vs. loan repayment behaviors can reveal trends such as the correlation between active days and loan repayment likelihood.
 
 Correlation: Understanding how features like repayment_ratio correlate with other financial behaviors (like transaction volume) helps to refine predictive models and improve decision-making.
-
-![Prediction models](https://github.com/lewis-hue/End-to-End-Data-Architecture-and-Analytics-Pipeline-on-AWS/blob/main/Machine_Learning_Model%20(Sagemaker).png)
-
-**Description:**
-
-**Amazon SageMaker** is used for feature engineering and machine learning. It processes the curated data to create new features that improve model predictions. For instance, churn prediction and loan activity prediction models are built based on customer behavior data.
-
-**Impact:**
-
-- **Feature Engineering**: Generates new predictive features, improving model accuracy.
-- **Machine Learning Models**: Trains predictive models that provide actionable insights into customer behavior and trends.
-
-**Importance:**
-
-Feature engineering and machine learning are crucial for building predictive models that help businesses make data-driven decisions, such as identifying high-value customers or predicting churn.
 
 ---
 
